@@ -3,15 +3,30 @@
 <p>Venga ese emilio, joder!</p>
 
 <%= form_for :player, url: players_path do |f| %>
+
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2>Revise bien lo que puso señora</h2>
+      <ul>
+        <% @player.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+
   <p>
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </p>
+
   <p>
     <%= f.submit %>
   </p>
+
 <% end %>

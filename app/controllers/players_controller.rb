@@ -9,12 +9,16 @@ class PlayersController < ApplicationController
   end
 
   def new
+    @player = Player.new
   end
 
   def create
     @player = Player.new(params.require(:player).permit(:name, :email))
-    @player.save
-    redirect_to @player
+    if @player.save
+      redirect_to @player
+    else
+      render 'new'
+    end
   end
 
 end
