@@ -1,0 +1,15 @@
+<h1>Que plantel!</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>E-Mail</th>
+  </tr>
+
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.email %></td>
+    </tr>
+  <% end %>
+</table>
