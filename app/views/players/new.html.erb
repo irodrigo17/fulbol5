@@ -1,0 +1,17 @@
+<h1>Registrate tío</h1>
+
+<p>Venga ese emilio, joder!</p>
+
+<%= form_for :player, url: players_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
