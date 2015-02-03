@@ -1,0 +1,20 @@
+<h1>Que partidazo!</h1>
+
+<p><%= @match.date  %> en <%= @matc.place %></p>
+
+<h2>El plantel</h2>
+
+<!-- TODO: DRY this out with a partial if possible -->
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>E-Mail</th>
+  </tr>
+
+  <% @match.players.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.email %></td>
+    </tr>
+  <% end %>
+</table>

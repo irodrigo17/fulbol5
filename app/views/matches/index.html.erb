@@ -1,0 +1,17 @@
+<h1>Partidos</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Lugar</th>
+    <th>Jugadores</th>
+  </tr>
+
+  <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.date %></td>
+      <td><%= match.place %></td>
+      <td><%= match.players.count %></td>
+    </tr>
+  <% end %>
+</table>

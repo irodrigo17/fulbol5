@@ -13,6 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20150202182048) do
 
+  create_table "match_players", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "match_players", ["match_id"], name: "index_match_players_on_match_id"
+  add_index "match_players", ["player_id"], name: "index_match_players_on_player_id"
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.string   "email"

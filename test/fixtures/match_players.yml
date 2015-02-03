@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: Marco Van Basten
-  email: marco@milan.com
+  match_id:
+  player_id:
 
 two:
-  name: Johan Cruyff
-  email: johan@ajax.com
+  match_id:
+  player_id:
