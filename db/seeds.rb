@@ -39,7 +39,7 @@ Player.create({name: 'Emiliano Barcia', email: 'desde.alaska@gmail.com'})
 # Matches
 
 match = Match.create({date: '2015-02-04T19:00:00', place: 'River'})
-match.add_players([
+match.players.append([
   Player.find_by_email('hourcadeesteban@gmail.com'),
   Player.find_by_email('irodrigo17@gmail.com'),
   Player.find_by_email('agustingr10@gmail.com'),
@@ -52,11 +52,13 @@ match.add_players([
   Player.find_by_email('degendao@gmail.com'),
   Player.find_by_email('jereman_gnr@hotmail.com')
 ])
+match.save
 
 match = Match.create({date: '2015-02-06T20:00:00', place: 'River'})
-match.add_players([
+match.players.append([
   Player.find_by_email('hourcadeesteban@gmail.com'),
   Player.find_by_email('irodrigo17@gmail.com'),
   Player.find_by_email('maumar2000@gmail.com'),
   Player.find_by_email('adeleon@codigodelsur.com')
 ])
+match.save

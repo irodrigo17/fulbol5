@@ -3,7 +3,7 @@ class Match < ActiveRecord::Base
   validates :place, presence: true
 
   has_many :match_players
-  has_many :players, :through => :match_players
+  has_many :players, :through => :match_players # TODO: sort by join date
 
   def add_player(player_email)
     player = Player.find_by_email(player_email)

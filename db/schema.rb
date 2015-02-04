@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150202182048) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "match_players", force: :cascade do |t|
     t.integer  "match_id"
     t.integer  "player_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150202182048) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "match_players", ["match_id"], name: "index_match_players_on_match_id"
-  add_index "match_players", ["player_id"], name: "index_match_players_on_player_id"
+  add_index "match_players", ["match_id"], name: "index_match_players_on_match_id", using: :btree
+  add_index "match_players", ["player_id"], name: "index_match_players_on_player_id", using: :btree
 
   create_table "matches", force: :cascade do |t|
     t.datetime "date"
@@ -37,4 +40,6 @@ ActiveRecord::Schema.define(version: 20150202182048) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "match_players", "matches"
+  add_foreign_key "match_players", "players"
 end
