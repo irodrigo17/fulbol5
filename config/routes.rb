@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :players
 
+  get 'send_mail' => 'matches#send_mail' # TODO: remove this route
+  get 'match/:id/join' => 'matches#join'
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
