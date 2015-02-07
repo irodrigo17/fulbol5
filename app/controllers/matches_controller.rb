@@ -23,6 +23,7 @@ class MatchesController < ApplicationController
     end
   end
 
+  # TODO: add background job for sending emails and remove this debugging endpoint
   def send_mail
     player = Player.find_by_email(params[:email])
     match = Match.find(params[:match])

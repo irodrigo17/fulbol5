@@ -1,5 +1,8 @@
 class MatchPlayer < ActiveRecord::Base
-  # TODO: cascade deletes
+
   belongs_to :match
   belongs_to :player
+
+  validates :player, uniqueness: { scope: :match, message: "should join only once" }
+
 end

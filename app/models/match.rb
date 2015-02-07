@@ -1,15 +1,9 @@
 class Match < ActiveRecord::Base
+
   validates :date, presence: true, uniqueness: true
   validates :place, presence: true
 
-  has_many :match_players
-  has_many :players, :through => :match_players # TODO: sort by join date
-
-  def add_player(player_email)
-    player = Player.find_by_email(player_email)
-    if player != nil
-      players << player
-    end
-  end
+  has_many :match_players, -> { order('match_players.created_at ASC') }, :dependent => :destroy
+  has_many :players, :through => :match_players
 
 end
