@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
+  # matches
+
   resources :matches
+
+  get 'send_mail' => 'matches#send_mail' # TODO: remove this route
+
+  # it should be a post, but we need to handle plain text emails too
+  get 'matches/:match_id/join/:player_id' => 'matches#join'
+
+  # players
 
   resources :players
 
-  get 'send_mail' => 'matches#send_mail' # TODO: remove this route
-  get 'match/:id/join' => 'matches#join'
+  # root
 
   root 'welcome#index'
 

@@ -6,20 +6,31 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    if params[:player]
-      @player = Player.find(params[:player])
+    if params[:player_id]
+      @player = Player.find(params[:player_id])
     end
   end
 
   def join
-    @match = Match.find(params[:id])
-    @player = Player.find(params[:player])
-    @match.players << @player
+    match = Match.find(params[:match_id])
+    player = Player.find(params[:player_id])
+    if !match.players.include? player
+      match.players << player
+      match.save
+    end
+    redirect_to match
+  end
+
+  def new
+    @match = Match.new
+  end
+
+  def create
+    @match = Match.new(params.require(:match).permit(:date, :place))
     if @match.save
-      render 'show'
+      redirect_to @match
     else
-      # TODO: show proper error message
-      render plain: @match.errors
+      render 'new'
     end
   end
 

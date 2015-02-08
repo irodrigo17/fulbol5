@@ -18,3 +18,9 @@
     </tr>
   <% end %>
 </table>
+
+<% if !@player.nil? %>
+<p>
+  <%= link_to "Sumate!", url_for(controller: 'matches', action: 'join', match_id: @match.id, player_id: @player.id), method: :post %>
+</p>
+<% end %>

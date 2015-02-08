@@ -7,8 +7,8 @@ class MatchMailer < ApplicationMailer
     @url = url_for(
       controller: 'matches',
       action: 'join',
-      id: match.id,
-      player: player.id,
+      match_id: match.id,
+      player_id: player.id,
       only_path: false
     )
     mail(to: player.email, subject: 'Futbol 5')
