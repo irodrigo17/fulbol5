@@ -24,4 +24,6 @@ The app is deployed to Heroku at [fulbol.herokuapp.com](https://fulbol.herokuapp
 
 - [ ] Define weekly CRON job for creating matches and sending emails, check [whenever](https://github.com/javan/whenever)
 - [ ] Localize for Spanish language, check [I18n](http://guides.rubyonrails.org/i18n.html)
+- [ ] Setup [TravisCI](https://travis-ci.org/)
+- [ ] Setup [Code Climate](https://codeclimate.com)
 - [ ] Improve UI
